@@ -49,3 +49,36 @@ Array.prototype.myFilter = function (callback) {
     // return the result
     return res;
 }
+
+/**
+ * Executes the provided callback on each element of the array to
+ * return a single value
+ * 
+ * @param callback A function to be executed on every element.
+ * Takes four parameters:
+ *      accumulator - accumulates the callback's return values
+ *      currentValue - the current element being processed
+ *      index - the current index being processed
+ *      array - the array this function was called on
+ * @param initialValue The value to be used as the first argument 
+ * on the first call of the callback. If not supplied, the first
+ * element will be used as the initialValue and the first element
+ * will not be reduced.
+ * @throws TypeError if the arr is empty
+ * @returns A single value that is the result of the callback.
+ */
+Array.prototype.myReduce = function (callback, initialValue) {
+    // throw TypeError if empty
+    if (this.length === 0) throw TypeError;
+    // declare an accumulator accordingly
+    let acc = initialValue === undefined ? this[0] : initialValue;
+    // declare index accordingly
+    let i = initialValue === undefined ? 1 : 0;
+    // loop through every element in the arr
+    for (; i < this.length; i++) {
+        // accumulate
+        acc = callback(acc, this[i], i, this);
+    }
+    // return the result
+    return acc;
+}
