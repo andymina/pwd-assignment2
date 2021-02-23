@@ -32,7 +32,7 @@ Array.protototype.myEach = function (callback){
     2. the index of the element
     3. the Array object being traversed
 
-@return: returns true if the call back function returns true for at least one element in the array, otherwise
+@return: returns true if the callback function returns true for at least one element in the array, otherwise
         it returns false
 **/
 
@@ -46,5 +46,35 @@ Array.prototype.mySome = function (callback){
       return true;
     }
   }
+  //if the callback doesnt return true for any element, return false
   return false;
+}
+
+
+/**
+@func: myEvery() takes in an array of elements and execute a function on each of the elements in the array, until
+      it finds one where callback returns a false value
+
+@param: callback: a func that is applied to each element in the array
+  callback is invoked with 3 arguments:
+    1. value of the element
+    2. the index of the element
+    3. the Array object being traversed
+
+@return: returns false if the callback function returns false for at least one element in the array, otherwise
+        it returns true
+**/
+
+Array.prototype.myEvery = function (callback){
+  //iterate through the array
+  for(let i = 0; i < this.length; i++){
+    //apply callback function to each elem in the array
+    callback(array[i], i, this);
+    //if the callback returned true, function immediately returns true
+    if(!callback(array[i], i, this)){
+      return false;
+    }
+  }
+  //if the callback doesnt return true for any element, return false
+  return true;
 }
