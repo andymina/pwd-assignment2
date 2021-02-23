@@ -14,7 +14,9 @@
 **/
 
 Array.protototype.myEach = function (callback){
+  //iterate through the array
   for(let i = 0; i < this.length; i++){
+    //apply callback function to each elem in the array
     callback(array[i], i, this);
   }
   return undefined;
@@ -35,8 +37,11 @@ Array.protototype.myEach = function (callback){
 **/
 
 Array.prototype.mySome = function (callback){
+  //iterate through the array
   for(let i = 0; i < this.length; i++){
+    //apply callback function to each elem in the array
     callback(array[i], i, this);
+    //if the callback returned true, function immediately returns true
     if(callback(array[i], i, this)){
       return true;
     }
