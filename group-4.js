@@ -39,8 +39,6 @@ Array.prototype.myEach = function (callback){
 Array.prototype.mySome = function (callback){
   //iterate through the array
   for(let i = 0; i < this.length; i++){
-    //apply callback function to each elem in the array
-    callback(this[i], i, this);
     //if the callback returned true, function immediately returns true
     if(callback(this[i], i, this)){
       return true;
@@ -68,8 +66,6 @@ Array.prototype.mySome = function (callback){
 Array.prototype.myEvery = function (callback){
   //iterate through the array
   for(let i = 0; i < this.length; i++){
-    //apply callback function to each elem in the array
-    callback(this[i], i, this);
     //if the callback returned true, function immediately returns true
     if(!callback(this[i], i, this)){
       return false;
@@ -84,16 +80,28 @@ const arr1 = [2,4,10,6,8]
 const arr2 = [1,3,5,7,9]
 
 function isOddNumber(number){
-  return number % 2;
+  if(number % 2 == 0){
+    return false;
+  }
+  else{
+    return true;
+  }
 }
 
 const cb = (x) => {
   console.log(isOddNumber(x));
 };
 
-const print = (x) => console.log(x);
 //arr.myEach(cb);
-print('---------------')
-arr1.mySome(cb);
-print('---------------')
-//arr2.myEvery(cb);
+console.log("TESTING myEach");
+console.log(arr.myEach(cb));
+console.log("------------------");
+
+console.log("TESTING mySome");
+console.log(arr1.mySome(isOddNumber));
+console.log(arr2.mySome(isOddNumber));
+console.log("------------------");
+
+console.log("TESTING myEvery");
+console.log(arr1.myEvery(isOddNumber));
+console.log(arr2.myEvery(isOddNumber));
