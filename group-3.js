@@ -32,3 +32,20 @@ Array.prototype.lastIndexOf = function(value) {
   }
   return i;
 }
+
+// includes()
+// Without using the native “Array.prototype.includes” method
+// of JavaScript, compose a function titled “myIncludes” that
+// will take in an array of elements and indicate whether or
+// not a target element is contained within the input array.
+// This returns a boolean.
+
+Array.prototype.myIncludes = function(value) {
+  for (var i = 0; i < this.length; i++) {
+    if(this[i] == value){
+      return true;
+    }
+  }
+  return false;
+
+}
