@@ -75,10 +75,15 @@ Array.prototype.myEvery = function (callback){
   return true;
 }
 
+
+//TESTING
+
+//arrays to test
 const arr = [1,2,3,4,5]
 const arr1 = [2,4,10,6,8]
 const arr2 = [1,3,5,7,9]
 
+//@func: a test function that checks if a num is odd
 function isOddNumber(number){
   if(number % 2 == 0){
     return false;
@@ -88,11 +93,12 @@ function isOddNumber(number){
   }
 }
 
+
 const cb = (x) => {
   console.log(isOddNumber(x));
 };
 
-//arr.myEach(cb);
+//TEST CASES
 console.log("TESTING myEach");
 console.log(arr.myEach(cb));
 console.log("------------------");
