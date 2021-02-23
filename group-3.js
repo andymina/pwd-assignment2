@@ -8,7 +8,7 @@
 // target element (if it is found) or -1 if that
 // element does not exist within the input array.
 
-Array.prototype.indexOf = function(value) {
+Array.prototype.myIndexOf = function(value) {
   for (var i = 0; i < this.length; i++) {
     if (arr[i] == value)
       return i;
